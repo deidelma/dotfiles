@@ -1,5 +1,6 @@
 -- Hint: use `:h <option>` to figure out the meaning if needed
-vim.opt.clipboard = "unnamedplus" -- use system clipboard
+--vim.opt.clipboard = "unnamedplus" -- use system clipboard
+vim.opt.clipboard:append("unnamedplus") -- use system clipboard
 vim.opt.completeopt = { "menu", "menuone", "noselect" }
 vim.opt.mouse = "a" -- allow the mouse to be used in Nvim
 vim.opt.scrolloff = 10 -- no less than 10 lines even if you keep scrolling down
@@ -9,6 +10,7 @@ vim.opt.tabstop = 4 -- number of visual spaces per TAB
 vim.opt.softtabstop = 4 -- number of spacesin tab when editing
 vim.opt.shiftwidth = 4 -- insert 4 spaces on a tab
 vim.opt.expandtab = true -- tabs are spaces, mainly because of python
+vim.opt.autoindent = true
 
 -- UI config
 vim.opt.number = true -- show absolute number
@@ -16,8 +18,13 @@ vim.opt.relativenumber = true -- add numbers to each line on the left side
 vim.opt.cursorline = true -- highlight cursor line underneath the cursor horizontally
 vim.opt.splitbelow = true -- open new vertical split bottom
 vim.opt.splitright = true -- open new horizontal splits right
-vim.opt.termguicolors = true -- enabl 24-bit RGB color in the TUI
+vim.opt.termguicolors = true -- enable 24-bit RGB color in the TUI
 vim.opt.showmode = false -- we are experienced, wo don't need the "-- INSERT --" mode hint
+vim.opt.background = "dark" -- enforce dark color schemes
+vim.opt.signcolumn = "yes"
+
+vim.opt.backspace = "indent,eol,start"
+vim.opt.iskeyword:append("-")
 
 -- Searching
 vim.opt.incsearch = true -- search as characters are entered

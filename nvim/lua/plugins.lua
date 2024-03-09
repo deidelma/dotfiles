@@ -67,6 +67,7 @@ require("lazy").setup({
 	},
 	-- Colorscheme
 	"tanvirtin/monokai.nvim",
+    { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 	-- Git integration
 	"tpope/vim-fugitive",
 	-- Git decorations
@@ -146,13 +147,13 @@ require("lazy").setup({
 	-- Usage: Enter 2-character search pattern then press a label character to
 	--        pick your target.
 	--        Initiate the sesarch with `s`(forward) or `S`(backward)
-	{
-		"ggandor/leap.nvim",
-		config = function()
-			-- See `:h leap-custom-mappings` for more details
-			require("leap").create_default_mappings()
-		end,
-	},
+	-- {
+	-- 	"ggandor/leap.nvim",
+	-- 	config = function()
+	-- 		-- See `:h leap-custom-mappings` for more details
+	-- 		require("leap").create_default_mappings()
+	-- 	end,
+	-- },
 	-- Make surrounding easier
 	-- ------------------------------------------------------------------
 	-- Old text                    Command         New text
@@ -164,31 +165,31 @@ require("lazy").setup({
 	-- 'change quot*es'            gzc'"           "change quotes"
 	-- delete(functi*on calls)     gzcf            function calls
 	-- ------------------------------------------------------------------
-	{
-		"kylechui/nvim-surround",
-		version = "*", -- Use for stability; omit to use `main` branch for the latest features
-		-- You can use the VeryLazy event for things that can
-		-- load later and are not important for the initial UI
-		event = "VeryLazy",
-		config = function()
-			require("nvim-surround").setup({
-				-- To solve the conflicts with leap.nvim
-				-- See: https://github.com/ggandor/leap.nvim/discussions/59
-				keymaps = {
-					insert = "<C-g>z",
-					insert_line = "gC-ggZ",
-					normal = "gz",
-					normal_cur = "gZ",
-					normal_line = "gzgz",
-					normal_cur_line = "gZgZ",
-					visual = "gz",
-					visual_line = "gZ",
-					delete = "gzd",
-					change = "gzc",
-				},
-			})
-		end,
-	},
+	-- {
+	-- 	"kylechui/nvim-surround",
+	-- 	version = "*", -- Use for stability; omit to use `main` branch for the latest features
+	-- 	-- You can use the VeryLazy event for things that can
+	-- 	-- load later and are not important for the initial UI
+	-- 	event = "VeryLazy",
+	-- 	config = function()
+	-- 		require("nvim-surround").setup({
+	-- 			-- To solve the conflicts with leap.nvim
+	-- 			-- See: https://github.com/ggandor/leap.nvim/discussions/59
+	-- 			keymaps = {
+	-- 				insert = "<C-g>z",
+	-- 				insert_line = "gC-ggZ",
+	-- 				normal = "gz",
+	-- 				normal_cur = "gZ",
+	-- 				normal_line = "gzgz",
+	-- 				normal_cur_line = "gZgZ",
+	-- 				visual = "gz",
+	-- 				visual_line = "gZ",
+	-- 				delete = "gzd",
+	-- 				change = "gzc",
+	-- 			},
+	-- 		})
+	-- 	end,
+	-- },
 	-- Better terminal integration
 	{
 		"akinsho/toggleterm.nvim",
@@ -206,4 +207,42 @@ require("lazy").setup({
 			require("config.telescope")
 		end,
 	},
+    {
+        "christoomey/vim-tmux-navigator",
+        -- cmd = {
+          --   "TmuxNavigateLeft",
+          --   "TmuxNavigateDown",
+          --   "TmuxNavigateUp",
+          --   "TmuxNavigateRight",
+          --   "TmuxNavigatePrevious",
+        -- },
+        -- keys = {
+          --   { "<c-h>", "<cmd><C-U>TmuxNavigateLeft<cr>" },
+            -- { "<c-j>", "<cmd><C-U>TmuxNavigateDown<cr>" },
+            -- { "<c-k>", "<cmd><C-U>TmuxNavigateUp<cr>" },
+            -- { "<c-h>", "<cmd><C-U>TmuxNavigateLeft<cr>" },
+            -- { "<c-l>", "<cmd><C-U>TmuxNavigateRight<cr>" },
+            -- { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
+        -- },
+    },
+    { "szw/vim-maximizer" },
+    { "tpope/vim-surround" },
+    { "vim-scripts/ReplaceWithRegister" },
+    {
+        "numToStr/Comment.nvim",
+        opts = {
+        },
+        lazy = false,
+    },
+    {
+        "folke/which-key.nvim",
+        event = "VeryLazy",
+        init = function ()
+            vim.o.timeout = true
+            vim.o.timeoutlen = 300
+            
+        end,
+        opts = {
+        },
+    },
 })
